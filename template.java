@@ -9,13 +9,17 @@
 @ScriptManifest(name = "WC Bot", description = "Should progress thru willow", author = "Brotato",
         version = 2.0, category = Category.WOODCUTTING, image = "")
 public class WoodChoppa extends AbstractScript {
+    State state;
+    int spot;
 
     @Override // Infinite loop
     public int onLoop() {
-        State state;
+
     }
         switch(getState()){
-
+        log("Stopped script");
+    stop();
+    break;
 
 
 
@@ -23,15 +27,18 @@ public class WoodChoppa extends AbstractScript {
 
     //State names
     private enum State{
-        
+        STOP, LOGOUT
+
 
     }
     //Checks if a certain condition is met and then returns that state
     //Define all states the bot should be in
     private State getState() {
-
-
-     
+        if (!getClient().isLoggedIn()){
+            state = State.STOP;
+        } else if(getClient().isLoggedIn()){
+            state = State.LOGOUT;
+        }
         return state;
     }
     public void onStart() {
