@@ -8,7 +8,7 @@
 
 @ScriptManifest(name = "WC Bot", description = "Should progress thru willow", author = "Brotato",
         version = 2.0, category = Category.WOODCUTTING, image = "")
-public class WoodChoppa extends AbstractScript {
+public class template extends AbstractScript {
     State state;
     int spot;
 
